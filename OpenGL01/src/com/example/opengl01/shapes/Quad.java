@@ -7,6 +7,8 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.opengl.GLES10;
+
 public class Quad {
 	// vertices
 	private float[] vertices = {
@@ -70,39 +72,39 @@ public class Quad {
 	public void draw(GL10 gl) {
 		
 		// save the mtx state
-		gl.glPushMatrix();
+		GLES10.glPushMatrix();
 		
 		// reset the transform matrix
-		gl.glLoadIdentity();
+		GLES10.glLoadIdentity();
 		
 		// apply the transformations
-		gl.glTranslatef(pos[0], pos[1], pos[2]);
+		GLES10.glTranslatef(pos[0], pos[1], pos[2]);
 		
 		// ccw winding
-		gl.glFrontFace(GL10.GL_CCW);
+		GLES10.glFrontFace(GLES10.GL_CCW);
 		// enable the culling
-		gl.glEnable(GL10.GL_CULL_FACE);
+		GLES10.glEnable(GLES10.GL_CULL_FACE);
 		// cull back
-		gl.glCullFace(GL10.GL_BACK);
+		GLES10.glCullFace(GLES10.GL_BACK);
 		
 		// enable the color buffer mode
-		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
-		gl.glColorPointer(4, GL10.GL_FLOAT, 0, clrBuffer);
+		GLES10.glEnableClientState(GLES10.GL_COLOR_ARRAY);
+		GLES10.glColorPointer(4, GLES10.GL_FLOAT, 0, clrBuffer);
 		
 		// enble the vtx array
-		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+		GLES10.glEnableClientState(GLES10.GL_VERTEX_ARRAY);
 		// give it the vtx buffer
-		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxBuffer);
+		GLES10.glVertexPointer(3, GLES10.GL_FLOAT, 0, vtxBuffer);
 		// now use it to draw the elements
-		gl.glDrawElements(GL10.GL_TRIANGLE_STRIP, indices.length, GL10.GL_UNSIGNED_SHORT, idxBuffer);
+		GLES10.glDrawElements(GLES10.GL_TRIANGLE_STRIP, indices.length, GLES10.GL_UNSIGNED_SHORT, idxBuffer);
 		// now disable what we enabled before
-		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
-		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+		GLES10.glDisableClientState(GLES10.GL_COLOR_ARRAY);
+		GLES10.glDisableClientState(GLES10.GL_VERTEX_ARRAY);
 		// disable the culling
-		gl.glDisable(GL10.GL_CULL_FACE);
+		GLES10.glDisable(GLES10.GL_CULL_FACE);
 		
 		// popo the matrix state
-		gl.glPopMatrix();
+		GLES10.glPopMatrix();
 	
 	}
 }
