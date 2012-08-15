@@ -5,10 +5,15 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Menu;
 
+
+// --------------------------------------------------------
 public class OGLActivity extends Activity {
+	
 	
 	private GLSurfaceView mGLSurfaceView;
 
+
+	// --------------------------------------------------------
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	// call the super method
@@ -23,6 +28,7 @@ public class OGLActivity extends Activity {
         //setContentView(R.layout.activity_ogl);
     }
 
+    // --------------------------------------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_ogl, menu);

@@ -3,9 +3,11 @@ package com.example.opengl01;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 
+//--------------------------------------------------------
 public class MyGLSurfaceView extends GLSurfaceView {
 	
 	
+	// --------------------------------------------------------
 	public MyGLSurfaceView(Context context){
         super(context);
 
@@ -16,7 +18,7 @@ public class MyGLSurfaceView extends GLSurfaceView {
         //setEGLContextClientVersion(2);
         
         // Render the view only when there is a change in the drawing data
-        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        //setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
         
         
